@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - OLLAMA_URL=http://host.docker.internal:11434
+      - OLLAMA_MODEL=qwen3-coder:480b-cloud
+      - ML_SERVICE_URL=http://ml-service:8000
+      - ADMIN_PASSWORD=dedhia2024
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    depends_on:
+      - ml-service
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - kidneycheck-network
+
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ml-service:/app
+    networks:
+      - kidneycheck-network
+
+networks:
+  kidneycheck-network:
+    driver: bridge

@@ -1,0 +1,22 @@
+# Never commit trained models — users train their own
+ml-service/model/*.pkl
+ml-service/model/*.joblib
+
+# Never commit the ap-atul dependency
+ap-atul-ckd/
+
+# Env files
+.env
+frontend/.env.local
+
+# Docker
+.docker/
+
+# Python
+__pycache__/
+venv/
+*.pyc
+
+# Next.js
+frontend/.next/
+frontend/node_modules/

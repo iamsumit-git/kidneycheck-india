@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red-primary: #dc2626;
+  --red-light: #fde8e8;
+  --amber: #d97706;
+  --green: #16a34a;
+  --bg: #fafaf9;
+  --text: #1c1917;
+  --muted: #78716c;
+  --border: #e7e5e4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'system-ui', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.progress-bar {
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option-btn {
+  transition: all 0.15s ease;
+  border: 1.5px solid var(--border);
+  background: white;
+}
+.option-btn:hover { border-color: var(--red-primary); background: var(--red-light); }
+.option-btn.selected { border-color: var(--red-primary); background: var(--red-light); }
+
+.risk-low    { background: #f0fdf4; border-color: #16a34a; color: #14532d; }
+.risk-medium { background: #fffbeb; border-color: #d97706; color: #78350f; }
+.risk-high   { background: #fef2f2; border-color: #dc2626; color: #7f1d1d; }
+.risk-critical { background: #fff1f2; border-color: #be123c; color: #881337; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.35s ease forwards; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse { animation: pulse-dot 1.5s ease-in-out infinite; }

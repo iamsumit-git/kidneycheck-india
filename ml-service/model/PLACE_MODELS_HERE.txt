@@ -1,0 +1,9 @@
+Place model .pkl files here after running setup.
+See ml-service/README.md for instructions.
+
+Files needed:
+- inbuilt_nb_model.pkl   (Naive Bayes — 100% accuracy)
+- inbuilt_knn_model.pkl  (KNN — 90.62% accuracy)
+- inbuilt_lr_model.pkl   (Logistic Regression — 100% accuracy)
+
+Get them from: https://github.com/ap-atul/Chronic-Kidney-Disease/tree/master/model
